@@ -1,11 +1,14 @@
 'use client'
 import React from 'react';
 import ReactPlayer from 'react-player';
+import { VideoData } from './types';
 
-const VideoPlayer = ({ videoData }) => {
+
+
+const VideoPlayer =  ({ videoData }: { videoData: VideoData[] }) => {
     // Helper function to generate the YouTube video URL
-    const getYouTubeVideoURL = (videoId) => `https://www.youtube.com/watch?v=${videoId}`;
-     const getYouTubeBestMomentURL = (videoId,start,end) => `https://www.youtube.com/embed/${videoId}?start=${start}&end=${end}&autoplay=1`
+    const getYouTubeVideoURL = (videoId:string) => `https://www.youtube.com/watch?v=${videoId}`;
+     const getYouTubeBestMomentURL = (videoId:string,start:number,end:number) => `https://www.youtube.com/embed/${videoId}?start=${start}&end=${end}&autoplay=1`
 
     return (
         <div className='youtTubeRoot'>

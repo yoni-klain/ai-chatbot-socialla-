@@ -34,6 +34,7 @@ import { SpinnerMessage, UserMessage } from '@/components/stocks/message'
 import { Chat } from '@/lib/types'
 import { auth } from '@/auth'
 import VideoPlayer from "@/components/ui/youtube/video-player";
+import {VideoData} from "@/components/ui/youtube/types";
 
 
 const openai = new OpenAI({
@@ -175,7 +176,7 @@ Besides that, you can also chat with users in friendly manner and do some clarif
           }))
         }),
         render: async function* ({ videoInformation }) {
-          const videoData = videoInformation.map(video => ({
+          const videoData:  VideoData[] = videoInformation.map(video => ({
             start: video.bestMomentStart,
             end: video.bestMomentEnd,
             title: video.videoTitle,
