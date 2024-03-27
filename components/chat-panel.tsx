@@ -27,24 +27,24 @@ export function ChatPanel({ id, title, input, setInput }: ChatPanelProps) {
 
   const exampleMessages = [
     {
-      heading: 'Explain the concept',
-      subheading: 'of a serverless function',
-      message: `Explain the concept of a serverless function`
+      heading: 'Ronaldo Example',
+      subheading: 'what I can do ?',
+      message: `show me some Ronaldo best moments`
     },
     {
       heading: 'What are the benefits',
-      subheading: 'of using turborepo in my codebase?',
-      message: 'What are the benefits of using turborepo in my codebase?'
+      subheading: 'you will see only important parts from video',
+      message: 'show me some Ronaldo best moments'
     },
     {
-      heading: 'List differences between',
-      subheading: 'pages and app router in Next.js',
-      message: `List differences between pages and app router in Next.js`
+      heading: 'Show me chess gambit principles',
+      subheading: 'we will find the most important moments without watching hours of videos',
+      message: `Show me chess gambit principles`
     },
     {
-      heading: 'What is the price',
-      subheading: `of VRCL in the stock market?`,
-      message: `What is the price of VRCL in the stock market?`
+      heading: 'Show me abs training best exercise for overwhait',
+      subheading: `we will present only the most important moments`,
+      message: `What is the best Ronny O'Sallivan long shot`
     }
   ]
 

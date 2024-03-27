@@ -24,29 +24,27 @@ export function EmptyScreen({ setInput }: Pick<UseChatHelpers, 'setInput'>) {
     <div className="mx-auto max-w-2xl px-4">
       <div className="flex flex-col gap-2 rounded-lg border bg-background p-8">
         <h1 className="text-lg font-semibold">
-          Welcome to Next.js AI Chatbot!
+          Welcome to video moment search AI Chatbot!
         </h1>
         <p className="leading-normal text-muted-foreground">
-          This is an open source AI chatbot app template built with{' '}
-          <ExternalLink href="https://nextjs.org">Next.js</ExternalLink>, the{' '}
-          <ExternalLink href="https://sdk.vercel.ai">
-            Vercel AI SDK
+          This is an smart AI chatbot app can save a lot of time{' '}
+          <ExternalLink href="https://socialla.org">socialla.com</ExternalLink>, the{' '}
+          <ExternalLink href="https://socialla.org">
+            socialla projects
           </ExternalLink>
           , and{' '}
-          <ExternalLink href="https://vercel.com/storage/kv">
-            Vercel KV
+          <ExternalLink href="https://www.linkedin.com/in/khilo-jammal-01252036/">
+            Created by.
           </ExternalLink>
           .
         </p>
         <p className="leading-normal text-muted-foreground">
-          It uses{' '}
-          <ExternalLink href="https://vercel.com/blog/ai-sdk-3-generative-ui">
-            React Server Components
+          It uses{' AI '}
+          <ExternalLink href="https://socialla.org">
+            Smart search base on video content
           </ExternalLink>{' '}
-          to combine text with UI generated as output of the LLM. The UI state
-          is synced through the SDK so the model is aware of your interactions
-          as they happen.
-        </p>
+          we can safe a lot of your time by picking up a most fitable video content based on your needs.
+          </p>
       </div>
     </div>
   )
