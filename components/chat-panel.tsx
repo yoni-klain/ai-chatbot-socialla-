@@ -29,12 +29,12 @@ export function ChatPanel({ id, title, input, setInput }: ChatPanelProps) {
     {
       heading: 'Ronaldo Example',
       subheading: 'what I can do ?',
-      message: `show me some Ronaldo best moments`
+      message: `Show me some Ronaldo best moments`
     },
     {
       heading: 'What are the benefits',
       subheading: 'you will see only important parts from video',
-      message: 'show me some Ronaldo best moments'
+      message: 'Show me some most important AI concepts. How it works?'
     },
     {
       heading: 'Show me chess gambit principles',
