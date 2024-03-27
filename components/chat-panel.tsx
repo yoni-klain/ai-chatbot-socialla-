@@ -42,7 +42,7 @@ export function ChatPanel({ id, title, input, setInput }: ChatPanelProps) {
       message: `Show me chess gambit principles`
     },
     {
-      heading: 'Show me abs training best exercise for overwhait',
+      heading: 'Show me abs training best exercise for overweight',
       subheading: `we will present only the most important moments`,
       message: `What is the best Ronny O'Sallivan long shot`
     }
