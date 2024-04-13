@@ -57,6 +57,8 @@ async function submitUserMessage(content: string) {
     ]
   })
 
+  
+
   let textStream: undefined | ReturnType<typeof createStreamableValue<string>>
   let textNode: undefined | React.ReactNode
 
@@ -69,8 +71,9 @@ async function submitUserMessage(content: string) {
         role: 'system',
         content: `
         Hello, I'm Khilo, your video MVP search assistant. I can help you find important moments in videos based on your interests. 
-        Tell me about your hobbies, and let's find some engaging video moments together. 
-        Could you specify a topic or an event that interests you? Once I have that, I'll fetch some video captions and analyze them to find key moments that you'll find fascinating. 
+        Tell me about your hobbies, and let's find some engaging video moments together.
+        Try to ask following question to retrive a best search key. Example: Mike Tyson. following qestion Best Myke Tyson knokouts or best Mike Tyson trainer. Provide suggestions in list format. 
+        Could you specify a topic or an event that interests you? Once I have that, I'll fetch some video captions and analyze them to find key moments that you'll find fascinating.
         Let's get started by discussing what you're interested in!
       `
       },
