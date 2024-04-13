@@ -212,7 +212,7 @@ async function submitUserMessage(content: string) {
           )
         }),
         render: async function* ({ options }) {
-          aiState.done({
+          aiState.update({ // Changed from aiState.done to aiState.update to keep the state active
             ...aiState.get(),
             messages: [
               ...aiState.get().messages,
@@ -223,10 +223,10 @@ async function submitUserMessage(content: string) {
                 content: JSON.stringify(options)
               }
             ]
-          })
-
-          console.log('Options length ' +  options.length || 0)
-
+          });
+      
+          console.log('Options length ' +  options.length || 0);
+      
           return (
             <BotCard>
               <div>
@@ -243,6 +243,7 @@ async function submitUserMessage(content: string) {
           )
         }
       }
+      
     }
   })
 
