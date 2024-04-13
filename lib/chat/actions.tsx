@@ -34,6 +34,7 @@ import { SpinnerMessage, UserMessage } from '@/components/stocks/message'
 import { Chat } from '@/lib/types'
 import { auth } from '@/auth'
 import VideoPlayer from '@/components/ui/youtube/video-player'
+import Options from '@/components/options'
 import { VideoData } from '@/components/ui/youtube/types'
 
 const openai = new OpenAI({
@@ -57,8 +58,6 @@ async function submitUserMessage(content: string) {
     ]
   })
 
-  
-
   let textStream: undefined | ReturnType<typeof createStreamableValue<string>>
   let textNode: undefined | React.ReactNode
 
@@ -70,18 +69,9 @@ async function submitUserMessage(content: string) {
       {
         role: 'system',
         content: `
-        Hello, I'm Khilo, your video MVP search assistant. I can help you find important moments in videos based on your interests. 
+        Hello, I'm Khilo, your video MVP search assistant. By asking following question and letting user to choose from search term options I can help you find important moments in videos based on your interests. 
         Tell me about your hobbies, and let's find some engaging video moments together.
-        Could you specify a topic or an event that interests you? Once I have that, I'll fetch some video captions and analyze them to find key moments that you'll find fascinating.
-        I will provide following question and suggest 10 more detailed search term options to retrive the best match search term. 
-        
-        Provide option in a new line and inside brackets [].
-        // Example 
-        Mike Tyson
-        I can find many topics about Mike Tyson, like:\n
-        [Best Myke Tyson knokouts] \n
-        [best Mike Tyson talk]. \n
-        
+        Ask user following question and suggest 10 more detailed search term options to retrive the best match search term. 
         Let's get started by discussing what you're interested in!
       `
       },
@@ -189,7 +179,7 @@ async function submitUserMessage(content: string) {
           )
 
           await sleep(1000)
-          
+
           aiState.done({
             ...aiState.get(),
             messages: [
@@ -207,6 +197,47 @@ async function submitUserMessage(content: string) {
             <BotCard>
               <div>
                 <VideoPlayer videoData={videoData} />
+              </div>
+            </BotCard>
+          )
+        }
+      },
+      show_search_term_options: {
+        description: `show search term options to user`,
+        parameters: z.object({
+          options: z.array(
+            z.object({
+              option: z.string()
+            })
+          )
+        }),
+        render: async function* ({ options }) {
+          aiState.done({
+            ...aiState.get(),
+            messages: [
+              ...aiState.get().messages,
+              {
+                id: nanoid(),
+                role: 'function',
+                name: 'show_search_term_options',
+                content: JSON.stringify(options)
+              }
+            ]
+          })
+
+          console.log('Options length ' +  options.length || 0)
+
+          return (
+            <BotCard>
+              <div>
+                {options.map((option, index) => (
+                  // Directly spread the necessary props into the Options component
+                  <Options
+                    key={index} // It's generally better to have a unique key, index is used here for simplicity
+                    option={option.option}
+                    onSubmit={submitUserMessage}
+                  />
+                ))}
               </div>
             </BotCard>
           )
@@ -301,11 +332,7 @@ export const getUIStateFromAIState = (aiState: Chat) => {
       id: `${aiState.chatId}-${index}`,
       display:
         message.role === 'function' ? (
-          message.name === 'listStocks' ? (
-            <BotCard>
-              <Stocks props={JSON.parse(message.content)} />
-            </BotCard>
-          ) : message.name === 'showStockPrice' ? (
+          message.name === 'showStockPrice' ? (
             <BotCard>
               <div>log1</div>
             </BotCard>
