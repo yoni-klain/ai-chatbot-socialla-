@@ -149,10 +149,7 @@ async function submitUserMessage(content: string) {
             ]
           })
 
-          /* // Automatically trigger show_video_moments after analyzing captions
-          const { show_video_moments } = getAIState().functions;
-          yield show_video_moments.render({ videoInformation: videos });
- */
+          
           return (
             <BotCard>
               <div>
